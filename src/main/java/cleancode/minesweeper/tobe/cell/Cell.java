@@ -9,7 +9,7 @@ public interface Cell {
 
     boolean hasLandMineCount();
 
-    String getSign();
+    CellSnapshot getSnapshot();
 
     void flag();
 

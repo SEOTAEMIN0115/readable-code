@@ -34,14 +34,17 @@ public class NumberCell implements Cell {
     public void flag() {
         cellState.flag();
     }
+
     @Override
     public void open() {
         cellState.open();
     }
+
     @Override
     public boolean isChecked() {
-        return cellState.isChecked();
+        return cellState.isOpened();
     }
+
     @Override
     public boolean isOpened() {
         return cellState.isOpened();

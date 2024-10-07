@@ -5,6 +5,7 @@ public enum UserAction {
     FLAG("깃발 꽂기"),
     UNKNOWN("알 수 없음");
     private final String description;
+
     UserAction(String description) {
         this.description = description;
     }

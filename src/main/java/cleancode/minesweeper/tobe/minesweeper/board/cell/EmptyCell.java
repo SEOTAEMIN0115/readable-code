@@ -5,6 +5,7 @@ public class EmptyCell implements Cell {
     private static final String EMPTY_SIGN = "■";
 
     private final CellState cellState = CellState.initialize();
+
     @Override
     public boolean isLandMine() {
         return false;
@@ -30,14 +31,17 @@ public class EmptyCell implements Cell {
     public void flag() {
         cellState.flag();
     }
+
     @Override
     public void open() {
         cellState.open();
     }
+
     @Override
     public boolean isChecked() {
-        return cellState.isChecked();
+        return cellState.isOpened();
     }
+
     @Override
     public boolean isOpened() {
         return cellState.isOpened();

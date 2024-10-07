@@ -6,6 +6,7 @@ public class LandMineCell implements Cell {
     private static final String LAND_MINE_SIGN = "☼";
 
     private final CellState cellState = CellState.initialize();
+
     @Override
     public boolean isLandMine() {
         return true;
@@ -31,14 +32,17 @@ public class LandMineCell implements Cell {
     public void flag() {
         cellState.flag();
     }
+
     @Override
     public void open() {
         cellState.open();
     }
+
     @Override
     public boolean isChecked() {
-        return cellState.isChecked();
+        return cellState.isFlagged();
     }
+
     @Override
     public boolean isOpened() {
         return cellState.isOpened();

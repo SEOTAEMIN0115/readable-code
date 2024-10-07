@@ -1,10 +1,10 @@
 package cleancode.minesweeper.tobe.minesweeper.io;
 
-import cleancode.minesweeper.tobe.minesweeper.exception.GameException;
 import cleancode.minesweeper.tobe.minesweeper.board.GameBoard;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshot;
 import cleancode.minesweeper.tobe.minesweeper.board.cell.CellSnapshotStatus;
 import cleancode.minesweeper.tobe.minesweeper.board.position.CellPosition;
+import cleancode.minesweeper.tobe.minesweeper.exception.GameException;
 import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignFinder;
 import cleancode.minesweeper.tobe.minesweeper.io.sign.CellSignProvider;
 
@@ -13,11 +13,12 @@ import java.util.stream.IntStream;
 
 public class ConsoleOutputHandler implements OutputHandler {
 
-    private final CellSignFinder cellSignFinder = new CellSignFinder();
     private static final String EMPTY_SIGN = "■";
     private static final String LAND_MINE_SIGN = "☼";
     private static final String FLAG_SIGN = "⚑";
     private static final String UNCHECKED_SIGN = "□";
+    private final CellSignFinder cellSignFinder = new CellSignFinder();
+
     @Override
     public void showGameStartComments() {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
@@ -62,11 +63,12 @@ public class ConsoleOutputHandler implements OutputHandler {
         }
         throw new IllegalArgumentException("확인할 수 없는 셀입니다.");
     }
+
     private String generateColAlphabets(GameBoard board) {
         List<String> alphabets = IntStream.range(0, board.getColSize())
-                .mapToObj(index -> (char) ('a' + index))
-                .map(Object::toString)
-                .toList();
+            .mapToObj(index -> (char) ('a' + index))
+            .map(Object::toString)
+            .toList();
         return String.join(" ", alphabets);
     }
 
